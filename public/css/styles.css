@@ -1,0 +1,191 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(60deg, rgb(254, 90, 28) 0%, rgb(255, 225, 52) 100%);
+  color: white;
+}
+
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+
+/* Animation */
+
+.parallax>use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+.authWrapper {
+  background-color: white;
+  border-radius: 1rem;
+  margin-top: 7.5rem;
+  width: 35%;
+  padding-bottom: 1.3rem;
+}
+
+.authWrapper h5 {
+  margin-top: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.authWrapper p {
+  font-size: 0.8rem;
+  color: #757373;
+  margin-top: 0.5rem;
+  margin-bottom: 2.2rem
+}
+
+.authWrapper input {
+  padding: 0.7rem;
+  margin-bottom: 1.3rem;
+  border-radius: 0.7rem;
+  border: 1px solid #9A9A9A;
+  width: 75%;
+}
+
+.authWrapper button {
+  margin-bottom: 1rem;
+  border: 0px solid;
+  color: white;
+  font-weight: bold;
+  width: 75%;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+  background: rgb(254, 90, 28);
+  background: linear-gradient(90deg, rgba(254, 90, 28, 1) 0%, rgba(255, 225, 52, 1) 100%);
+}
+
+.or {
+  color: grey;
+  font-size: 1rem;
+  margin: 0;
+  padding-bottom: 0.3rem;
+}
+
+.authWrapper a {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: rgba(255, 225, 52, 1);
+}
+
+.navText {
+  font-weight: 700;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.taskWrapper {
+  border: 0;
+  background: #FDFD96;
+  width: 30%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.taskWrapper input {
+  padding: 0.7rem;
+  border: 0;
+  background-color: #FDFD96;
+}
+
+.taskWrapper button {
+  border: 1px solid rgba(255, 225, 52, 1);
+  background-color: #FDFD96;
+  padding: 1rem;
+  padding: 10px 30px;
+  border-radius: 0.7rem;
+  font-weight: 600;
+}
+
+.taskWrapper button:hover {
+  background-color: rgba(255, 225, 52, 1);
+  transition: 0.3s;
+}
+
+.taskWrapper button:active {
+  padding: 0.7rem;
+}
+
+.taskCard {
+  background-color: #FDFD96;
+  border-radius: 0.7rem;
+}
+
+.taskTitle p {
+  font-weight: bold;
+}
+
+.tasks {
+  background-image: url(../img/Rectangle\ 8.png);
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+input:focus {
+  outline: none
+}
+
+@media (max-width: 992px) {
+
+  .authWrapper,
+  .taskWrapper {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .authWrapper,
+  .taskWrapper {
+    width: 90%;
+  }
+}

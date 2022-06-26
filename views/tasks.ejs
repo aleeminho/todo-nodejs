@@ -1,0 +1,49 @@
+<%- include('partials/header.ejs') %>
+  <div class="tasks">
+    <nav class="navbar">
+      <div class="container-fluid d-flex justify-content-center">
+        <p class="navbar-text mb-0 navText">Hello, <%= data.name || Stranger %>
+        </p>
+      </div>
+    </nav>
+    <div class="container-sm">
+      <form action="/addtask" method="post" class="d-flex justify-content-center">
+        <div class="taskWrapper mt-3">
+          <div class="form-group d-flex justify-content-center flex-column">
+            <input type="text" name="title" class="mt-1 mb-3" placeholder="Title">
+            <input type="text" name="content" placeholder="Content">
+          </div>
+          <div class="form-group mt-3 text-center">
+            <button type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+      <div class="row mt-5">
+        <% data.tasks.forEach(e=> { %>
+          <div class="col-md-3">
+            <div class="taskCard p-3 mb-4">
+              <div class="taskTitle text-break">
+                <p>
+                  <% console.log(`${e.id} -- ${e.title}`) %>
+                    <%= e.title %>
+                </p>
+              </div>
+              <div class="taskContent text-break">
+                <p>
+                  <%= e.content %>
+                </p>
+              </div>
+              <div class="deleteOther d-flex justify-content-start">
+                <a href="/edittask/<%=data.id%>/<%= e.id %>"><i class="bi bi-pencil-square me-3"></i></a>
+                <form id="delete" action="/deletetask/<%=data.id%>/<%= e.id %>" method="post">
+                  <a href="javascript:;" onclick="document.getElementById('delete').submit()"><i
+                      class="bi bi-trash"></i></a>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+  </div>
+  <%- include('partials/footer.ejs') %>
