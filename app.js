@@ -105,8 +105,6 @@ app.post('/edittask/:id/:taskId', (req, res) => {
 app.post('/deletetask/:id/:taskId', (req, res) => {
   User.findById(req.params.id, (err, data) => {
     if (err) console.log(err);
-    console.log(req.params.taskId);
-    console.log(data);
     data.tasks.splice(data.tasks.findIndex((e) => e.id === req.params.taskId), 1);
     data.save(() => {
       res.redirect('/tasks');
