@@ -56,7 +56,7 @@ app.get('/tasks', (req, res) => {
       } else {
         res.locals.title = 'Todo List';
         res.render('tasks', {
-          data: user,
+          data: user, _,
         });
       }
     });
