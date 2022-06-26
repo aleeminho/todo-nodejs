@@ -10,7 +10,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const _ = require('lodash');
 const { v4: uuidv4 } = require('uuid');
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,7 +27,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // DB
-mongoose.connect('mongodb://localhost:27017/todoDB');
+const uri = process.env.MONGODB_URI;
+mongoose.connect(uri || 'mongodb://localhost:27017/todoDB', { useNewUrlParser: true, useUnifiedTopology: true });
 const userSchema = new mongoose.Schema({
   name: String,
   username: String,
@@ -155,6 +156,6 @@ app.route('/auth/register')
     });
   });
 
-app.listen(process.env.PORT || port, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
