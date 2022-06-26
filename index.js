@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(`${__dirname}/public`));
 
 app.use(session({
-  secret: 'secret bous',
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
 }));
@@ -102,16 +102,15 @@ app.post('/edittask/:id/:taskId', (req, res) => {
 });
 
 app.post('/deletetask/:id/:taskId', (req, res) => {
-  res.send(`${req.params.taskId}`);
-  // User.findById(req.params.id, (err, data) => {
-  //   if (err) console.log(err);
-  //   console.log(req.params.taskId);
-  //   console.log(data);
-  //   data.tasks.splice(data.tasks.findIndex((e) => e.id === req.params.taskId), 1);
-  //   data.save(() => {
-  //     res.redirect('/tasks');
-  //   });
-  // });
+  User.findById(req.params.id, (err, data) => {
+    if (err) console.log(err);
+    console.log(req.params.taskId);
+    console.log(data);
+    data.tasks.splice(data.tasks.findIndex((e) => e.id === req.params.taskId), 1);
+    data.save(() => {
+      res.redirect('/tasks');
+    });
+  });
 });
 
 app.route('/auth/login')

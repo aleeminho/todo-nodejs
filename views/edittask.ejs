@@ -37,8 +37,7 @@
               <div class="deleteOther d-flex justify-content-start">
                 <a href="/edittask/<%=data.id%>/<%= e.id %>"><i class="bi bi-pencil-square me-3"></i></a>
                 <form id="delete" action="/deletetask/<%=data.id%>/<%= e.id %>" method="post">
-                  <a href="javascript:;" onclick="document.getElementById('delete').submit()"><i
-                      class="bi bi-trash"></i></a>
+                  <button type="submit"><i class="bi bi-trash"></i></button>
                 </form>
               </div>
             </div>
