@@ -179,6 +179,31 @@ body {
   color: black;
 }
 
+.logoutButton {
+  border: 1px solid #FDFD96;
+  background-color: rgba(255, 225, 52, 1);
+  padding: 10px 13px;
+  border-radius: 0.7rem;
+  font-weight: 600;
+}
+
+.logoutButton:hover {
+  background-color: #FDFD96;
+  transition: 0.3s;
+}
+
+.logoutButton:active {
+  padding: 0.4rem;
+}
+
+.logoutButton button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+
 input:focus {
   outline: none
 }
