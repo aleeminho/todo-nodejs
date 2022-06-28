@@ -1,16 +1,10 @@
 <%- include('partials/header.ejs') %>
   <div class="tasks">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar">
       <div class="container-fluid">
         <p class="navbar-text mb-0 navText ms-5">Hello, <%= _.startCase(data.name) %>
         </p>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <a class="logoutButton me-5" href="/auth/logout"><button>Logout</button></a>
-        </div>
+        <a class="logoutButton me-5" href="/auth/logout"><button>Logout</button></a>
       </div>
     </nav>
     <div class="container-sm">
