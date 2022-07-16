@@ -81,11 +81,15 @@ app.post('/addtask', (req, res) => {
 });
 
 app.get('/edittask/:id/:taskId', (req, res) => {
-  User.findById(req.params.id, (err, data) => {
-    if (err) console.log(err);
-    res.locals.title = 'Edit Task';
-    res.render('edittask', { data, filteredTask: data.tasks.find((e) => e.id === req.params.taskId), _ });
-  });
+  if (req.isAuthenticated()) {
+    User.findById(req.params.id, (err, data) => {
+      if (err) console.log(err);
+      res.locals.title = 'Edit Task';
+      res.render('edittask', { data, filteredTask: data.tasks.find((e) => e.id === req.params.taskId), _ });
+    });
+  } else {
+    res.redirect('/auth/register');
+  }
 });
 
 app.post('/edittask/:id/:taskId', (req, res) => {
