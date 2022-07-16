@@ -66,7 +66,9 @@ app.get('/tasks', (req, res) => {
 });
 
 app.post('/addtask', (req, res) => {
-  const updateObject = { id: uuidv4(), title: req.body.title, content: req.body.content };
+  const updateObject = {
+    id: uuidv4(), title: req.body.title, content: req.body.content, date: req.body.date,
+  };
   User.findById(req.user.id, (err, data) => {
     if (err) console.log(err);
     if (data) {
