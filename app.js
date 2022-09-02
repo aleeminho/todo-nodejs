@@ -99,6 +99,7 @@ app.post('/edittask/:id/:taskId', (req, res) => {
       $set: {
         'tasks.$.title': req.body.title,
         'tasks.$.content': req.body.content,
+        'tasks.$.date': req.body.date,
       },
     },
     (err, data) => {
